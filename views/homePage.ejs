@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<center><h1>Newegg Item Tracker</h1></center>
+<h3>Welcome <%= uname %></h3>
+<br>
+<p>Enter Link to Newegg Item Here</p>
+<form action="/api" method="POST"> 
+    <label for="username">Enter Newegg Link</label><br>
+    <input type="text" id="username" name="url", required><br>
+    <button type="submit" onclick="run()">Submit</button>
+</form>
+<p id="erMessage"><%= err %></p>
+<br>
+
+<form action="/logout" method="POST">
+    <button type="submit", onclick="foo()">Logout?</button>
+</form>
+
+<p id="Info"></p>
+<br>
+<b>Note: Each User can only track one Item at a Time</b>
+
+
+<script>
+function run(){
+    fetch("/register").then(data => {
+        return data.json()
+    }).then(data => {
+        document.getElementById("Info").innerHTML = data.time
+    })
+}
+
+function foo(){
+    console.log("fasfkdjlajsadsfjnas")
+    location.href="/itempage";
+}
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

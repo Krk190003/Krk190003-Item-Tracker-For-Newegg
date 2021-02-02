@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Properties for <%= uname %>'s Item: </h1>
+    <br>
+    <p1>Prodcut Name: <%= name %></p1>
+    <br>
+    <p1>Initial Price: <%= price %></p1>
+    <br></br> 
+    <img src="<%= image %>", width="400", height="300">
+    <br>
+  
+
+    <br></br>
+    <p1 id="information">Status: <%= status %>  Price: <%= price %>, <%= time %></p1>
+    <br></br>
+    <p1 id="d"></p1>
+    <br>
+    <form action="/stop" method="GET"> 
+        <button type="submit">Track Another Item</button> 
+    </form>
+    <form action="/logout" method="POST">
+        <button type="submit">Logout?</button>
+    </form>
+    <br>
+    <br>
+    <b>An Email will be sent if the items price or status changes.</b>
+    
+</body>
+
+<script>
+    setInterval(() => {
+        fetch("/retrieveData").then(data => {
+            return data.json();
+            //document.getElementById("information").innerHTML = data.time;
+        }).then(data1 => {
+            document.getElementById("information").innerHTML = `Status: ${data1.status} Price: ${data1.price}, ${data1.time}`;
+        })
+    }, 1000)
+    
+    
+</script>
+
+
+
+
+
+   
+
+
+</html>
+
+
+
+
