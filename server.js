@@ -263,7 +263,7 @@ app.get("/login", checkNotAuth, async (req, res) => {
 
 app.get("/home", checkAuth, doesUserHaveItem, async (req, res) => {
     t = await User.findOne({username: temp.username});
-    res.render('homepage.ejs', {err: "", uname: t.username})
+    res.render('homePage.ejs', {err: "", uname: t.username})
     res.end();
 })
 
