@@ -21,7 +21,7 @@ let t ="";
 let hasItem = false;
 
 
-
+app.set('view engine', 'ejs')
 
 
 
@@ -71,7 +71,7 @@ var mailOptions = {
 
 
 //Ejs Template
-app.set('view engine', 'ejs')
+
 
 //BodyParser 
 app.use(express.json());
