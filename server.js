@@ -11,7 +11,7 @@ const passport = require('passport')
 const LocalStrategy = require("passport-local").Strategy;
 const session = require("express-session");
 const { updateMany, findByIdAndUpdate, findOneAndUpdate } = require('./model/user');
-
+const dot = require('dotenv').config()
 
 let urlw;
 let itemData;
@@ -41,7 +41,7 @@ setInterval(async () => {
 
 
 //Connect To Database 
-let db = mongoose.connect('mongodb://localhost:27017/Price-Tracking-Database', {
+let db = mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/Price-Tracking-Database', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
