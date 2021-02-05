@@ -215,8 +215,10 @@ app.post("/api", async (req, res,) => {
     if(!(keys.includes(temp.username))){
         keys[keys.length] = temp.username;
     }
+    
 
     mailOptions.to;
+    console.log("tester");
     itemData = await scrapper.retrieveItemInfo(req.body.url);
     await User.findOneAndUpdate({username: temp.username}, {hasItem: true})
     await User.findOneAndUpdate({username: temp.username},{url: itemData.url})
