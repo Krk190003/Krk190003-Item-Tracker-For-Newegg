@@ -223,7 +223,7 @@ app.post("/api", async (req, res,) => {
     await User.findOneAndUpdate({username: temp.username},{new_field: itemData});
 
     if (itemData.status == "Error") {
-        //res.render("homePage.ejs",{err: "Not a Valid Link!"});
+        res.render("homePage.ejs",{err: "Not a Valid Link!"});
     }
     else {
         
