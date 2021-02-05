@@ -3,13 +3,22 @@ const { createBrowserFetcher } = require('puppeteer');
 
 puppeteer = require('puppeteer')
 
-//dasd
+const chromeOptions = {
+  headless: true,
+  defaultViewport: null,
+  args: [
+      "--incognito",
+      "--no-sandbox",
+      "--single-process",
+      "--no-zygote"
+  ],
+};
 
 async function retrieveItemInfo(url) {
   var datetime = new Date();
   try{
   let time = `Last Updated: ${datetime.toLocaleDateString()} at ${datetime.toLocaleTimeString()}`;
-  const browser = await puppeteer.launch({ args: ['--no-sandbox']});
+  const browser = await puppeteer.launch(chromeOptions);
   const tab = await browser.newPage();
   await tab.goto(url)
   let status = await tab.evaluate(() => {
